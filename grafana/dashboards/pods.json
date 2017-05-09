@@ -956,7 +956,7 @@
             "text": "kube-system",
             "value": "kube-system"
           },
-          "datasource": null,
+          "datasource": "${DS_INFLUXDB-DATASOURCE}",
           "includeAll": false,
           "multi": false,
           "multiFormat": "glob",
@@ -974,7 +974,7 @@
             }
           ],
           "query": "SHOW TAG VALUES FROM \"uptime\" WITH KEY = \"namespace_name\"",
-          "refresh": false,
+          "refresh": true,
           "type": "query"
         },
         {
@@ -1043,6 +1043,7 @@
           ],
           "query": "SHOW TAG VALUES FROM \"uptime\" WITH KEY = \"pod_name\" WHERE \"pod_namespace\" =~ /$namespace$/",
           "refresh": true,
+          "datasource": "${DS_INFLUXDB-DATASOURCE}",
           "regex": "",
           "type": "query"
         }
